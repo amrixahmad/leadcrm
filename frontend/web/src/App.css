@@ -1391,7 +1391,7 @@ section {
   padding-bottom: 8px;
 }
 .contact .php-email-form .error-message {
-  display: none;
+  /* display: none; */
   color: #fff;
   background: #ed3c0d;
   text-align: left;
