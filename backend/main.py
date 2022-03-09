@@ -1,5 +1,5 @@
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI,Depends,HTTPException
+from fastapi import FastAPI,Depends,HTTPException,Response
 from typing import List
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
@@ -37,8 +37,9 @@ async def generate_token(
     ):
     
     user = await crud.authenticate_user(form_data.username,form_data.password,db)
-
+    print(form_data.username,form_data.password)
     if not user:
+        # print(user)
         raise HTTPException(status_code=401,detail="Invalid credentials")
     
     return await crud.create_token(user)
@@ -70,14 +71,13 @@ async def get_leads(
     ):
     return await crud.get_lead(lead_id,user,db)
 
-@app.delete("/api/leads/{lead_id}",status_code=204)
+@app.delete("/api/leads/{lead_id}",status_code=204,response_class=Response)
 async def delete_lead(
     lead_id: int,
     user: schemas.User = Depends(crud.get_current_user),
     db: Session = Depends(crud.get_db)
     ):
     await crud.delete_lead(lead_id,user,db)
-    return {"message":"Lead has been deleted successfully"}
 
 @app.put("/api/leads/{lead_id}",status_code=200)
 async def update_lead(

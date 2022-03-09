@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Register from './components/Register';
 import { UserContext } from './context/UserContext';
 import Table from './components/Table';
+import Login from './components/Login';
 
 function App() {
   const [message,setMessage] = useState("")
@@ -31,14 +32,18 @@ function App() {
   },[])
 
   return (
-    <div className="App">
-      <Header />      
-      <Hero title={message} />
+    <div className="App">      
       {
-        !token ? (          
-          <Register />
+        !token ? (
+          <div>
+          <Header />      
+          <Hero title={message} />
+          <Register /> <Login /></div>            
         ) : (
+          <div>
+          <Header /> 
           <Table />
+          </div>
         )
       }      
     </div>

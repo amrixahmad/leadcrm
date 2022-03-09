@@ -1,25 +1,23 @@
 {
     "email": "rinn@amri.com",
-    "password": "%14w0K67S2Laj"
+    "password": "cR90772ViqZ"
 },
 {
     "email": "amri@amri.com",
-    "password": "^W%^^xg17iUWa"
+    "password": "OoCG76z5887"
 },
 {
     "email": "john@amri.com",
-    "password": "^sSbvo#10w27Rb"
+    "password": "password12345"
 },
 {
     "email": "jane@amri.com",
-    "password": "M92rX$OvrAM4P"
+    "password": "k4N7y2BxXki"
 },
 {
     "email": "x@amri.com",
-    "password": "M92rX$OvrAM4P"
+    "password": "mR85p7zQuQL"
 }
-
-
 
 {
     "first_name": "Thor",

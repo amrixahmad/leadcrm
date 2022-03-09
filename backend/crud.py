@@ -94,12 +94,8 @@ async def get_lead(lead_id: int,user: schemas.User,db: Session):
     return schemas.Lead.from_orm(lead)
 
 async def delete_lead(lead_id: int,user: schemas.User,db:Session):
-    lead = (
-            db.query(models.Lead)
-            .filter_by(owner_id=user.id)
-            .filter(models.Lead.id == lead_id)
-            .first()
-            )
+    lead = await _lead_selector(lead_id,user,db)
+    
     db.delete(lead)
     db.commit()
 
